@@ -1,4 +1,4 @@
-@extends('layout/default')
+@extends('layout/main')
 @section('menu1', 'menu-open')
 @section('Sub-menu-1', 'active-sidebar')
 <!--===================== TITLE =====================-->
