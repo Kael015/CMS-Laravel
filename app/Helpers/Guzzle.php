@@ -50,8 +50,14 @@ class Guzzle
 
       return $body;
     } catch (RequestException $e) {
-      Log::error($e);
-      throw $e;
+      if ($e->hasResponse()) {
+        $exception = (string) $e->getResponse()->getBody();
+        $exception = json_decode($exception);
+        return $exception;
+      } else {
+        Log::error($e);
+        throw $e;
+      }
     } catch (SofiaException $e) {
       Log::error($e);
       throw $e;
@@ -75,8 +81,14 @@ class Guzzle
 
       return $body;
     } catch (RequestException $e) {
-      Log::error($e);
-      throw $e;
+      if ($e->hasResponse()) {
+        $exception = (string) $e->getResponse()->getBody();
+        $exception = json_decode($exception);
+        return $exception;
+      } else {
+        Log::error($e);
+        throw $e;
+      }
     } catch (SofiaException $e) {
       Log::error($e);
       throw $e;
@@ -100,8 +112,14 @@ class Guzzle
 
       return $body;
     } catch (RequestException $e) {
-      Log::error($e);
-      throw $e;
+      if ($e->hasResponse()) {
+        $exception = (string) $e->getResponse()->getBody();
+        $exception = json_decode($exception);
+        return $exception;
+      } else {
+        Log::error($e);
+        throw $e;
+      }
     } catch (SofiaException $e) {
       Log::error($e);
       throw $e;
@@ -125,8 +143,14 @@ class Guzzle
 
       return $body;
     } catch (RequestException $e) {
-      Log::error($e);
-      throw $e;
+      if ($e->hasResponse()) {
+        $exception = (string) $e->getResponse()->getBody();
+        $exception = json_decode($exception);
+        return $exception;
+      } else {
+        Log::error($e);
+        throw $e;
+      }
     } catch (SofiaException $e) {
       Log::error($e);
       throw $e;
@@ -140,15 +164,15 @@ class Guzzle
   {
     // dd($data);
     if ($path == '/api/get-login') {
-      if ($data['email'] == '015ghz@gmail.com' && $data['password'] == 'Password1') {
+      if ($data['email'] == 'test@gmail.com' && $data['password'] == 'Password1') {
 
         $data = [
             "uuid" => "7a19031a-ad6b-4d15-82d7-8ddceaced4f8",
-            "tokenSession" => "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIwMTVnaHpAZ21haWwuY29tIiwiaWF0IjoxNjc4MjAzMDU4LCJleHAiOjE2NzgyODk0NTh9.VxpB_lL_oNPzxIleCky_MTpc4fQ3NKnVvTn6rq67RGc0Y0szpihmMATnjj ▶",
+            "tokenSession" => "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIwMTVnaHpAZ21haWwuY29tIiwiaWF0IjoxNjc4MjAzMDU4LCJleHAiOjE2NzgyODk0NTh9.VxpB_lL_oNPzxIleCky_MTpc4fQ3NKnVvTn6rq67RGc0Y0szpihmMATnjj",
             "nameUser" => "test email 1",
-            "email" => "015ghz@gmail.com",
+            "email" => "test@gmail.com",
             "phoneNumber" => "0896842903641",
-            "pfp" => "http://147.139.179.1:80/photo-profile/2D780947B69CC29955A10DC5A4384163.png",
+            "pfp" => "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
             "generated" => false,
             "roleName" => "Admin",
         ];
